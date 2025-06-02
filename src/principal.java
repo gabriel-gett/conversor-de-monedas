@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 public class principal {
     //variables para crear el marco
     static final char LINEA_VERTICAL = '║';
@@ -10,7 +12,26 @@ public class principal {
     static final int bordeInferior = 1;
 
     public static void main(String[] args) {
-
+        //construyendo la interaccion con el usuario
+        mostrarTitulo("CONVERSOR DE MONEDAS");
+        Scanner lectura = new Scanner(System.in);
+        ConsultarMoneda consulta = new ConsultarMoneda();
+        int opcion = 0;
+        while (opcion != 9) {
+            mostrarTitulo("ELIGE LA OPCION A CONVERTIR:");
+            System.out.println("""
+                    1.-Peso mexicano  -- dolar
+                    2.-Dolar          -- peso mexicano
+                    3.-Real Brasilero -- dolar
+                    4.-dolar          -- real brasilero
+                    5.-peso Argentino -- dolar
+                    6.-dolar          -- peso argentino
+                    7.-Yen japones    -- peso mexicano
+                    8.-peso mexicano  -- yen japones
+                    9.-Salir***""");
+            opcion = lectura.nextInt();
+            lectura.nextLine();
+        }
     }
     //metodo para crear el marco
     static void mostrarTitulo(String titulo) {
