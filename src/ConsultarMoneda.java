@@ -1,6 +1,9 @@
+import com.google.gson.Gson;
+
 import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
+import java.net.http.HttpResponse;
 
 public class ConsultarMoneda {
     //implementando la direccion API
@@ -11,5 +14,16 @@ public class ConsultarMoneda {
         HttpRequest request = HttpRequest.newBuilder()
                 .uri(direccion)
                 .build();
+    //construyendo la respuesta HTTP
+        try {
+            HttpResponse<String> response = client
+                    .send(request, HttpResponse.BodyHandlers.ofString());
+            return new Gson().fromJson(response.body(), Monedas.class);
+        }
+        catch (Exception e) {
+            throw new RuntimeException("No se encontro la moneda.");
+        }
     }
 }
+
+
