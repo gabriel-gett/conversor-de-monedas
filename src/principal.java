@@ -31,6 +31,40 @@ public class principal {
                     9.-Salir***""");
             opcion = lectura.nextInt();
             lectura.nextLine();
+
+            //generando las opciones
+            switch (opcion) {
+                case 1:
+                    Conversor.convertir( "MXN", "USD", consulta, lectura);
+                    break;
+                case 2:
+                    Conversor.convertir( "USD", "MXN",consulta, lectura);
+                    break;
+                case 3:
+                    Conversor.convertir("BRL", "USD", consulta, lectura);
+                    break;
+                case 4:
+                    Conversor.convertir("USD", "BRL", consulta, lectura);
+                    break;
+                case 5:
+                    Conversor.convertir("ARS", "USD", consulta, lectura);
+                    break;
+                case 6:
+                    Conversor.convertir("USD", "ARS", consulta, lectura);
+                    break;
+                case 7:
+                    Conversor.convertir("JPY", "MXN", consulta, lectura);
+                    break;
+                case 8:
+                    Conversor.convertir("MXN", "JPY", consulta, lectura);
+                    break;
+                case 9:
+                    System.out.println("Saliendo del programa.");
+                    break;
+                default:
+                    System.out.println("opcion no valida.");
+                    break;
+            }
         }
     }
     //metodo para crear el marco
